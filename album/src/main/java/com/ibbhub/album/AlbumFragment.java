@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 
 import java.io.File;
@@ -186,6 +187,13 @@ public abstract class AlbumFragment extends Fragment implements TimeAlbumListene
                         if (timeBeans != null) {
                             mData.addAll(timeBeans);
                             sortList();
+                        }else{
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    pb_loading.setVisibility(View.GONE);
+                                    Toast.makeText(getActivity(), "没照片", Toast.LENGTH_SHORT).show();
+                                }});
                         }
 
                     }

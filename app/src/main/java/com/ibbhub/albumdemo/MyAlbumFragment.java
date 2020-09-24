@@ -68,7 +68,8 @@ public class MyAlbumFragment extends AlbumFragment {
 
     public static RequestOptions buildOptions() {
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions.override(100, 100);
+
+        requestOptions.override(100, 100).centerCrop();
         requestOptions.diskCacheStrategy(DiskCacheStrategy.ALL);
         return requestOptions;
     }
